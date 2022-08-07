@@ -17,17 +17,13 @@ public class main {
 			System.out.println("0:攻撃　1：スキル");
 			int select = new java.util.Scanner(System.in).nextInt();
 			if (select == 0) {
-				int damage = h.attack();
-				System.out.println(h.name + "は" + e.name + "を攻撃した");
-				System.out.println(e.name + "に" + damage + "のダメージ");
+				int damage = h.attack(e.name);
 				e.hp -= damage;
 				if(e.hp <= 0) {
 					break;
 				}	
 			}else if (select == 1){
-				int damage = h.skill();
-				System.out.println(h.name + "はスキルを使った");
-				System.out.println(e.name + "に" + damage + "のダメージ");
+				int damage = h.skill(e.name);
 				e.hp -= damage;
 			}
 			System.out.println(h.name + "のMPは" + h.mp + "です");
@@ -36,9 +32,7 @@ public class main {
 			//Enemyのターン
 			int e_select = new java.util.Random().nextInt(1);
 			if(e_select == 0) {
-				int damage = e.attack();
-				System.out.println(e.name + "は" + h.name + "に攻撃した");
-				System.out.println(h.name + "に" + damage + "のダメージ");
+				int damage = e.attack(h.name);
 				h.hp -= damage;
 			}else if(e_select == 1){
 				e.haneru();

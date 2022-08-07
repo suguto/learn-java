@@ -9,37 +9,69 @@ public class main {
 //		c.pray(3);
 		
 		Hero h = new Hero("上条");
-		Enemy e = new Enemy();
+		Enemy e = new Enemy("スライム");
+		Matango m = new Matango("マタンゴ");
+		//int[] action = { h.attack(e), h.skill(e), h.attack(m), h.skill(m) };
 		while(h.hp >= 0) {
 			//Heroのターン
 			System.out.println(h.name + "のHPは" + h.hp + "でMPは" + h.mp + "です");
 			System.out.println(e.name + "のHPは" + e.hp + "です");
-			System.out.println("0:攻撃　1：スキル");
+			System.out.println(m.name + "のHPは" + m.hp + "でMPは" + m.mp + "です");
+			System.out.println("0:スライムに攻撃　1：スライムにスキル 2:マタンゴに攻撃 3:マタンゴにスキル");
 			int select = new java.util.Scanner(System.in).nextInt();
 			if (select == 0) {
-				int damage = h.attack(e.name);
-				e.hp -= damage;
-				if(e.hp <= 0) {
-					break;
+				int e_HP = h.attack(e);				
+				if(e_HP <= 0) {
+					e.hp = 0;
 				}	
 			}else if (select == 1){
-				int damage = h.skill(e.name);
-				e.hp -= damage;
+				int e_HP = h.skill(e);
+				if(e_HP <= 0) {
+					e.hp = 0;
+				}	
+			}else if (select == 2) {
+				int m_HP = h.attack(m);
+				if (m_HP <= 0) {
+					m.hp = 0;
+				}
+			}else if (select == 3) {
+				int m_HP = h.skill(m);
+				if (m_HP <= 0) {
+					m.hp = 0;
+				}
 			}
-			System.out.println(h.name + "のMPは" + h.mp + "です");
-			System.out.println(e.name + "のHPは" + e.hp + "です");
+			if (e.hp == 0 && m.hp == 0) {
+				break;
+			}
 			
 			//Enemyのターン
-			int e_select = new java.util.Random().nextInt(1);
-			if(e_select == 0) {
-				int damage = e.attack(h.name);
-				h.hp -= damage;
-			}else if(e_select == 1){
-				e.haneru();
-			}
+			if (e.hp > 0) {
+				int e_select = new java.util.Random().nextInt(2);
+				if(e_select == 0) {
+					int h_HP = e.attack(h);
+					if(h_HP <= 0) {
+						break;
+					}	
+				}else if(e_select == 1){
+					e.haneru();
+				}
+			}	
+			//Matangoのターン
+			if (m.hp > 0) {
+				int m_select = new java.util.Random().nextInt(2);
+				if(m_select == 0) {
+					int h_HP = m.attack(h);
+					if(h_HP <= 0) {
+						break;				
+					}
+				}	
+				if(m_select == 1) {
+					int h_HP = m.poison(h);
+				}
+			}	
 		}
-		if(e.hp <= 0) {
-			System.out.println(e.name + "を倒しました！");
+		if(e.hp <= 0 && m.hp <= 0) {
+			System.out.println("敵を全員倒しました！");
 		}else if(h.hp <= 0) {
 			System.out.println("目の前が真っ暗になった・・・");
 		}

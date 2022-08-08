@@ -15,29 +15,31 @@ public class main {
 		while(h.hp >= 0) {
 			//Heroのターン
 			System.out.println(h.name + "のHPは" + h.hp + "でMPは" + h.mp + "です");
-			System.out.println(e.name + "のHPは" + e.hp + "です");
-			System.out.println(m.name + "のHPは" + m.hp + "でMPは" + m.mp + "です");
 			System.out.println("0:スライムに攻撃　1：スライムにスキル 2:マタンゴに攻撃 3:マタンゴにスキル");
 			int select = new java.util.Scanner(System.in).nextInt();
 			if (select == 0) {
 				int e_HP = h.attack(e);				
 				if(e_HP <= 0) {
 					e.hp = 0;
+					System.out.println(e.name + "を倒しました");
 				}	
 			}else if (select == 1){
 				int e_HP = h.skill(e);
 				if(e_HP <= 0) {
 					e.hp = 0;
+					System.out.println(e.name + "を倒しました");
 				}	
 			}else if (select == 2) {
 				int m_HP = h.attack(m);
 				if (m_HP <= 0) {
 					m.hp = 0;
+					System.out.println(m.name + "を倒しました");
 				}
 			}else if (select == 3) {
 				int m_HP = h.skill(m);
 				if (m_HP <= 0) {
 					m.hp = 0;
+					System.out.println(m.name + "を倒しました");
 				}
 			}
 			if (e.hp == 0 && m.hp == 0) {
@@ -46,6 +48,7 @@ public class main {
 			
 			//Enemyのターン
 			if (e.hp > 0) {
+				System.out.println(e.name + "のHPは" + e.hp + "です");
 				int e_select = new java.util.Random().nextInt(2);
 				if(e_select == 0) {
 					int h_HP = e.attack(h);
@@ -58,6 +61,7 @@ public class main {
 			}	
 			//Matangoのターン
 			if (m.hp > 0) {
+				System.out.println(m.name + "のHPは" + m.hp + "でMPは" + m.mp + "です");
 				int m_select = new java.util.Random().nextInt(2);
 				if(m_select == 0) {
 					int h_HP = m.attack(h);

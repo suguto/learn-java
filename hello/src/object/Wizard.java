@@ -5,9 +5,10 @@ public class Wizard {
 	private int mp;
 	private String name;
 	private Wand wand;
+	private int MAX_HP = 50;
 	
 	public void heal(Hero h) {
-		int basePoint = 10;
+		int basePoint = 5;
 		int recovPoint = (int)(basePoint * this.wand.getPower());
 		if (h.hp + recovPoint > h.MAX_HP) {
 			h.setHp(h.MAX_HP);
@@ -16,6 +17,37 @@ public class Wizard {
 		}	
 		System.out.println(this.name + "は" + h.getName() + "のHPを" + recovPoint + "回復した");
 		System.out.println(h.getName() + "のHPは" + h.getHp() + "です");
+		this.mp -= 5;
+	}
+	
+	public void heal(Wizard w) {
+		int basePoint = 5;
+		int recovPoint = (int)(basePoint * this.wand.getPower());
+		if (this.hp + recovPoint > this.MAX_HP) {
+			this.hp = this.MAX_HP;
+		}else {
+			this.hp = this.hp + recovPoint;
+		}	
+		System.out.println(this.name + "は自分のHPを" + recovPoint + "回復した");
+		System.out.println(this.name + "のHPは" + this.hp + "です");
+		this.mp -= 5;
+	}
+	
+	public void fire(Enemy e) {
+		this.mp -= 5;
+		int basePoint = 5;
+		int fire = (int)(basePoint * this.wand.getPower());
+		System.out.println(this.name + "のファイアー");
+		System.out.println(e.name + "に" + fire + "ダメージ");
+		e.hp -= fire; 
+	}
+	public void fire(Matango m) {
+		this.mp -= 5;
+		int basePoint = 5;
+		int fire = (int)(basePoint * this.wand.getPower());
+		System.out.println(this.name + "のファイアー");
+		System.out.println(m.name + "に" + fire + "ダメージ");
+		m.hp -= fire; 
 	}
 	
 	//アクセス修飾子で制限する為にgetterとsetterを用意します。

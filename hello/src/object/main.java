@@ -16,7 +16,7 @@ public class main {
 		wand.setPower(5);
 		Wizard wizard = new Wizard();
 		wizard.setHp(50);
-		wizard.setMp(20);
+		wizard.setMp(100);
 		wizard.setName("‚Ý‚±‚Æ");
 		wizard.setWand(wand);
 		
@@ -54,14 +54,47 @@ public class main {
 			if (e.hp == 0 && m.hp == 0) {
 				break;
 			}
+			System.out.println("");
 			
 			//–‚–@Žg‚¢‚Ìƒ^[ƒ“
-			wizard.heal(h);
+			if (wizard.getHp() > 0) {
+				System.out.println(wizard.getName() + "‚ÌHP‚Í" + wizard.getHp() + ", MP‚Í" + wizard.getMp() + "‚Å‚·");
+				int w_select = new java.util.Random().nextInt(2);
+				if (h.hp < 80) {
+					wizard.heal(h);
+				}else if (wizard.getHp() < 20) {
+					wizard.heal(wizard);
+				}else if (w_select == 0 && e.hp > 0) {
+					wizard.fire(e);
+					if(e.hp <= 0) {
+						System.out.println(e.name + "‚ð“|‚µ‚Ü‚µ‚½");
+					}	
+				}else if (w_select == 0 && e.hp <= 0) {
+					wizard.fire(m);
+					if(m.hp <= 0) {
+						System.out.println(m.name + "‚ð“|‚µ‚Ü‚µ‚½");
+					}	
+				}else if (w_select == 1 && m.hp > 0) {
+					wizard.fire(m);
+					if(m.hp <= 0) {
+						System.out.println(m.name + "‚ð“|‚µ‚Ü‚µ‚½");
+					}	
+				}else if (w_select == 1 && m.hp <= 0) {
+					wizard.fire(e);
+					if(e.hp <= 0) {
+						System.out.println(e.name + "‚ð“|‚µ‚Ü‚µ‚½");
+					}	
+				}
+			}
+			if (e.hp <= 0 && m.hp <= 0) {
+				break;
+			}
+			System.out.println("");
 			
 			//Enemy‚Ìƒ^[ƒ“
 			if (e.hp > 0) {
 				System.out.println(e.name + "‚ÌHP‚Í" + e.hp + "‚Å‚·");
-				int e_select = new java.util.Random().nextInt(2);
+				int e_select = new java.util.Random().nextInt(3);
 				if(e_select == 0) {
 					int h_HP = e.attack(h);
 					if(h_HP <= 0) {
@@ -69,22 +102,56 @@ public class main {
 					}	
 				}else if(e_select == 1){
 					e.haneru();
+				}else if (e_select == 2 && wizard.getHp() > 0) {
+					e.attack(wizard);
+					if(wizard.getHp() <= 0) {
+						System.out.println(wizard.getName() + "‚Í“|‚ê‚½");
+					}	
+				}else if (e_select == 2 && wizard.getHp() <= 0) {
+					e.attack(h);
+					if(h.hp <= 0) {
+						break;
+					}	
 				}
-			}	
+			}
+			System.out.println("");
 			//Matango‚Ìƒ^[ƒ“
 			if (m.hp > 0) {
 				System.out.println(m.name + "‚ÌHP‚Í" + m.hp + "‚ÅMP‚Í" + m.mp + "‚Å‚·");
-				int m_select = new java.util.Random().nextInt(2);
+				int m_select = new java.util.Random().nextInt(4);
 				if(m_select == 0) {
 					int h_HP = m.attack(h);
 					if(h_HP <= 0) {
 						break;				
 					}
-				}	
-				if(m_select == 1) {
+				}else if(m_select == 1) {
 					int h_HP = m.poison(h);
+					if(h_HP <= 0) {
+						break;
+					}	
+				}else if (m_select == 2 && wizard.getHp() > 0) {
+					m.attack(wizard);
+					if(wizard.getHp() <= 0) {
+						System.out.println(wizard.getName() + "‚Í“|‚ê‚½");
+					}	
+				}else if (m_select == 2 && wizard.getHp() <= 0) {
+					int h_HP = m.attack(h);
+					if(h_HP <= 0) {
+							break;				
+						}
+				}else if (m_select == 3 && wizard.getHp() > 0) {
+					m.poison(wizard);
+					if(wizard.getHp() <= 0) {
+						System.out.println(wizard.getName() + "‚Í“|‚ê‚½");
+					}	
+				}else if (m_select == 3 && wizard.getHp() <= 0) {
+					int h_HP = m.poison(h);
+					if(h_HP <= 0) {
+						break;
+					}
 				}
-			}	
+			}
+			System.out.println("");
 		}
 		if(e.hp <= 0 && m.hp <= 0) {
 			System.out.println("“G‚ð‘Sˆõ“|‚µ‚Ü‚µ‚½I");

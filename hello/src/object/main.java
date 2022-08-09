@@ -11,6 +11,15 @@ public class main {
 		Hero h = new Hero("上条");
 		Enemy e = new Enemy("スライム");
 		Matango m = new Matango("マタンゴ");
+		Wand wand = new Wand();
+		wand.setName("木の杖");
+		wand.setPower(5);
+		Wizard wizard = new Wizard();
+		wizard.setHp(50);
+		wizard.setMp(20);
+		wizard.setName("みこと");
+		wizard.setWand(wand);
+		
 		//int[] action = { h.attack(e), h.skill(e), h.attack(m), h.skill(m) };
 		while(h.hp >= 0) {
 			//Heroのターン
@@ -45,6 +54,9 @@ public class main {
 			if (e.hp == 0 && m.hp == 0) {
 				break;
 			}
+			
+			//魔法使いのターン
+			wizard.heal(h);
 			
 			//Enemyのターン
 			if (e.hp > 0) {

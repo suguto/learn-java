@@ -6,6 +6,16 @@ public class Hero {
 	final int MAX_HP = 100;
 	int mp = 20;
 	final int MAX_MP = 20;
+	
+	public int getHp() {
+		return this.hp;
+	}
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	public String getName() {
+		return this.name;
+	}
 	//多態性でMatangoをEnemyとみなすとHPがオーバーライド出来ない為別にメソッドを作ります
 	public int attack(Enemy e){
 		int damage = new java.util.Random().nextInt(3);

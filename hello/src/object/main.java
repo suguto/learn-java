@@ -20,6 +20,10 @@ public class main {
 		wizard.setName("みこと");
 		wizard.setWand(wand);
 		
+		int e_HP = e.getHp();
+		int m_HP = m.getHp();
+		
+		
 		//int[] action = { h.attack(e), h.skill(e), h.attack(m), h.skill(m) };
 		while(h.hp >= 0) {
 			//Heroのターン
@@ -27,31 +31,31 @@ public class main {
 			System.out.println("0:スライムに攻撃　1：スライムにスキル 2:マタンゴに攻撃 3:マタンゴにスキル");
 			int select = new java.util.Scanner(System.in).nextInt();
 			if (select == 0) {
-				int e_HP = h.attack(e);				
+				e_HP -= h.attack(e);	
 				if(e_HP <= 0) {
-					e.hp = 0;
+					e_HP = 0;
 					System.out.println(e.name + "を倒しました");
 				}	
 			}else if (select == 1){
-				int e_HP = h.skill(e);
+				e_HP -= h.skill(e);
 				if(e_HP <= 0) {
-					e.hp = 0;
+					e_HP = 0;
 					System.out.println(e.name + "を倒しました");
 				}	
 			}else if (select == 2) {
-				int m_HP = h.attack(m);
+				m_HP -= h.attack(m);
 				if (m_HP <= 0) {
-					m.hp = 0;
+					m_HP = 0;
 					System.out.println(m.name + "を倒しました");
 				}
 			}else if (select == 3) {
-				int m_HP = h.skill(m);
+				m_HP -= h.skill(m);
 				if (m_HP <= 0) {
-					m.hp = 0;
+					m_HP = 0;
 					System.out.println(m.name + "を倒しました");
 				}
 			}
-			if (e.hp == 0 && m.hp == 0) {
+			if (e_HP <= 0 && m_HP <= 0) {
 				break;
 			}
 			System.out.println("");
@@ -64,36 +68,36 @@ public class main {
 					wizard.heal(h);
 				}else if (wizard.getHp() < 20) {
 					wizard.heal(wizard);
-				}else if (w_select == 0 && e.hp > 0) {
-					wizard.fire(e);
-					if(e.hp <= 0) {
+				}else if (w_select == 0 && e_HP > 0) {
+					e_HP -= wizard.fire(e);
+					if(e_HP <= 0) {
 						System.out.println(e.name + "を倒しました");
 					}	
-				}else if (w_select == 0 && e.hp <= 0) {
-					wizard.fire(m);
-					if(m.hp <= 0) {
+				}else if (w_select == 0 && e_HP <= 0) {
+					m_HP -= wizard.fire(m);
+					if(m_HP <= 0) {
 						System.out.println(m.name + "を倒しました");
 					}	
-				}else if (w_select == 1 && m.hp > 0) {
-					wizard.fire(m);
-					if(m.hp <= 0) {
+				}else if (w_select == 1 && m_HP > 0) {
+					m_HP -= wizard.fire(m);
+					if(m_HP <= 0) {
 						System.out.println(m.name + "を倒しました");
 					}	
-				}else if (w_select == 1 && m.hp <= 0) {
-					wizard.fire(e);
-					if(e.hp <= 0) {
+				}else if (w_select == 1 && m.getHp() <= 0) {
+					e_HP -= wizard.fire(e);
+					if(e_HP <= 0) {
 						System.out.println(e.name + "を倒しました");
 					}	
 				}
 			}
-			if (e.hp <= 0 && m.hp <= 0) {
+			if (e_HP <= 0 && m_HP <= 0) {
 				break;
 			}
 			System.out.println("");
-			
+		
 			//Enemyのターン
-			if (e.hp > 0) {
-				System.out.println(e.name + "のHPは" + e.hp + "です");
+			if (e_HP > 0) {
+				System.out.println(e.name + "のHPは" + e_HP + "です");
 				int e_select = new java.util.Random().nextInt(3);
 				if(e_select == 0) {
 					int h_HP = e.attack(h);
@@ -115,9 +119,10 @@ public class main {
 				}
 			}
 			System.out.println("");
+			
 			//Matangoのターン
-			if (m.hp > 0) {
-				System.out.println(m.name + "のHPは" + m.hp + "でMPは" + m.mp + "です");
+			if (m_HP > 0) {
+				System.out.println(m.name + "のHPは" + m_HP + "でMPは" + m.getMp() + "です");
 				int m_select = new java.util.Random().nextInt(4);
 				if(m_select == 0) {
 					int h_HP = m.attack(h);
@@ -152,8 +157,9 @@ public class main {
 				}
 			}
 			System.out.println("");
+	
 		}
-		if(e.hp <= 0 && m.hp <= 0) {
+		if(e_HP <= 0 && m_HP <= 0) {
 			System.out.println("敵を全員倒しました！");
 		}else if(h.hp <= 0) {
 			System.out.println("目の前が真っ暗になった・・・");

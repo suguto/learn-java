@@ -1,11 +1,25 @@
 package object;
 
 public class Matango extends Enemy {
-	int hp = 70;
-	int mp = 20;
+	private int hp = 70;
+	private int mp = 20;
 	public Matango(String name) {
 		super(name);
 	}
+	
+	 public int getHp() {
+		 return this.hp;
+	 }
+	 public void setHp(int hp) {
+		 this.hp = hp;
+	 }
+	 public int getMp() {
+		 return this.mp;
+	 }
+	 public void setMp(int mp) {
+		 this.mp = mp;
+	 }
+	//@override
 	public int attack(Hero h) {
 		int damage = new java.util.Random().nextInt(5);
 		damage += 10;
@@ -13,7 +27,7 @@ public class Matango extends Enemy {
 		System.out.println(h.name + "Ç…" + damage + "ÇÃÉ_ÉÅÅ[ÉW");
 		h.hp -= damage;
 		return h.hp;
-	}
+	}//@override
 	public void attack(Wizard w){
 		int damage = new java.util.Random().nextInt(5);
 		damage += 10;
@@ -23,7 +37,7 @@ public class Matango extends Enemy {
 	}
 	public int poison(Hero h) {
 		this.mp -= 5;
-		if (this.mp < 5) {
+		if (this.mp > 5) {
 			this.attack(h);
 			return h.hp;
 		}else {
@@ -37,7 +51,7 @@ public class Matango extends Enemy {
 	}
 	public void poison(Wizard w) {
 		this.mp -= 5;
-		if (this.mp < 5) {
+		if (this.mp > 5) {
 			this.attack(w);
 		}else {
 			int damage = new java.util.Random().nextInt(5);

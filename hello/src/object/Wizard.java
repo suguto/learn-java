@@ -35,22 +35,22 @@ public class Wizard {
 		this.mp -= 5;
 	}
 	
-	public void fire(Enemy e) {
+	public int fire(Enemy e) {
 		this.mp -= 5;
 		int basePoint = 5;
 		int fire = (int)(basePoint * this.wand.getPower());
 		System.out.println(this.name + "のファイアー");
 		System.out.println(e.name + "に" + fire + "ダメージ");
-		e.hp -= fire; 
+		return fire; 
 	}
-	public void fire(Matango m) {
-		this.mp -= 5;
-		int basePoint = 5;
-		int fire = (int)(basePoint * this.wand.getPower());
-		System.out.println(this.name + "のファイアー");
-		System.out.println(m.name + "に" + fire + "ダメージ");
-		m.hp -= fire; 
-	}
+//	public void fire(Matango m) {
+//		this.mp -= 5;
+//		int basePoint = 5;
+//		int fire = (int)(basePoint * this.wand.getPower());
+//		System.out.println(this.name + "のファイアー");
+//		System.out.println(m.name + "に" + fire + "ダメージ");
+//		m.hp() -= fire; 
+//	}
 	
 	//アクセス修飾子で制限する為にgetterとsetterを用意します。
 	public int getHp() {

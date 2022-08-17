@@ -1,5 +1,7 @@
 package object;
 
+//例外的状況の報告（例外を）投げる throw 例外インスタンス;
+//一般的には　throw new 例外クラス名　（"エラーメッセージ"）;と使う
 public class Wand {
 	private String name;
 	private double power;

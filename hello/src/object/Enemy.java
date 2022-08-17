@@ -2,7 +2,14 @@ package object;
 
 public class Enemy {
 	 String name;
-	 int hp = 50;
+	 private int hp = 50;
+	 
+	 public int getHp() {
+		 return this.hp;
+	 }
+	 public void setHp(int hp) {
+		 this.hp = hp;
+	 }
 	
 	public int attack(Hero h){
 		int damage = new java.util.Random().nextInt(5);

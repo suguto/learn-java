@@ -16,7 +16,7 @@ public class Hero {
 	public String getName() {
 		return this.name;
 	}
-	//多態性でMatangoをEnemyとみなすとHPがオーバーライド出来ない為別にメソッドを作ります
+	
 	public int attack(Enemy e){
 		int damage = new java.util.Random().nextInt(3);
 		damage += 5;

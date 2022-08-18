@@ -1,7 +1,7 @@
 package object;
 
 public class Enemy {
-	 String name;
+	 private String name;
 	 private int hp = 50;
 	 
 	 public int getHp() {
@@ -9,6 +9,9 @@ public class Enemy {
 	 }
 	 public void setHp(int hp) {
 		 this.hp = hp;
+	 }
+	 public String getName() {
+		 return this.name;
 	 }
 	
 	public int attack(Hero h){

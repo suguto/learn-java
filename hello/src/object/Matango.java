@@ -23,7 +23,7 @@ public class Matango extends Enemy {
 	public int attack(Hero h) {
 		int damage = new java.util.Random().nextInt(5);
 		damage += 10;
-		System.out.println(this.name + "‚ÌUŒ‚");
+		System.out.println(this.getName() + "‚ÌUŒ‚");
 		System.out.println(h.name + "‚É" + damage + "‚Ìƒ_ƒ[ƒW");
 		h.hp -= damage;
 		return h.hp;
@@ -31,7 +31,7 @@ public class Matango extends Enemy {
 	public void attack(Wizard w){
 		int damage = new java.util.Random().nextInt(5);
 		damage += 10;
-		System.out.println(this.name + "‚Í" + w.getName() + "‚ÉUŒ‚‚µ‚½");
+		System.out.println(this.getName() + "‚Í" + w.getName() + "‚ÉUŒ‚‚µ‚½");
 		System.out.println(w.getName() + "‚É" + damage + "‚Ìƒ_ƒ[ƒW");
 		w.setHp(w.getHp() - damage);
 	}
@@ -43,7 +43,7 @@ public class Matango extends Enemy {
 		}else {
 			int damage = new java.util.Random().nextInt(5);
 			damage += 15;
-			System.out.println(this.name + "‚Ì“ÅUŒ‚");
+			System.out.println(this.getName() + "‚Ì“ÅUŒ‚");
 			System.out.println(h.name + "‚É" + damage + "‚Ìƒ_ƒ[ƒW");
 			h.hp -= damage;
 			return h.hp;
@@ -56,7 +56,7 @@ public class Matango extends Enemy {
 		}else {
 			int damage = new java.util.Random().nextInt(5);
 			damage += 15;
-			System.out.println(this.name + "‚Ì“ÅUŒ‚");
+			System.out.println(this.getName() + "‚Ì“ÅUŒ‚");
 			System.out.println(w.getName() + "‚É" + damage + "‚Ìƒ_ƒ[ƒW");
 			w.setHp(w.getHp() - damage);
 		}		

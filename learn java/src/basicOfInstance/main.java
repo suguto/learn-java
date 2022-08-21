@@ -1,9 +1,10 @@
 package basicOfInstance;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		Hero h = new Hero();
 		h.setName("坂本");
 		h.setHp(50);
@@ -58,6 +59,34 @@ public class main {
 		Hero clone = h1.clone();
 		System.out.println(h1.toString());
 		System.out.println(clone.toString());
+		System.out.println("");
+		
+		SimpleDateFormat f = new SimpleDateFormat("yyyy/mm/dd");
+		ArrayList<Book> books = new ArrayList<>();
+		
+		Book b1 = new Book();
+		b1.setTitle("Java入門");
+		b1.setPublishDate(f.parse("2011/10/07"));
+		b1.setComment("スッキリわかる");
+		books.add(b1);
+		
+		Book b2 = new Book();
+		b2.setTitle("Python入門");
+		b2.setPublishDate(f.parse("2019/06/11"));
+		b2.setComment("はにゃ？");
+		books.add(b2);
+		
+		Book b3 = new Book();
+		b3.setTitle("C言語入門");
+		b3.setPublishDate(f.parse("2018/06/21"));
+		b3.setComment("自由自在");
+		books.add(b3);
+		
+		Collections.sort(books, new TitleComparator());
+		
+		for (Book b : books) {
+			System.out.println(b.getTitle() + "" + f.format(b.getPublishDate()) + "" + b.getComment() );
+		}
 		
 		// TODO Auto-generated method stub
 

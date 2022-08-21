@@ -44,6 +44,7 @@ public class Account implements Comparable<Account> {
 	}
 	
 	//Comparableインターフェースを実装するとcompareTo()のオーバーライドが強制される
+	//自然順序を定義する
 	public int compareTo(Account obj) {
 		if (this.number < obj.number) {
 			return -1;						//自分自身の方がobjよりも小さい場合・・・負の数

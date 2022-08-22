@@ -1,9 +1,9 @@
 package variousC;
 import static variousC.AccountType.*;
+import static variousC.KeyType.*;
 
 import java.util.*;
 
-import basicOfInstance.Account;
 
 
 
@@ -44,6 +44,11 @@ public class main {
 //			}
 //		});		こんな感じで使うと余計にクラスを作らずに済む
 		
+		
+		
+		StringBox<String> st = new StringBox<>(FINGER);
+		st.put("アイテム");
+		st.get();
 
 		
 		// TODO Auto-generated method stub

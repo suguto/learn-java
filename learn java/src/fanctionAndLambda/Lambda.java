@@ -30,11 +30,11 @@ public class Lambda {
 		System.out.println(f.format(D.get()));
 		
 		//例３　long配列を受け取り、そのコピーを作り、内容を並び変えて返す
-		LongUnaryOperator<Long> l = (long[] org) -> {
-			long[] cpy = Arrays.copyOf(org, org.length());
-			Arrays.sort(cpy);
-			return cpy;
-		};
+//		LongUnaryOperator<Long> l = (long[] org) -> {
+//			long[] cpy = Arrays.copyOf(org, org.length());
+//			Arrays.sort(cpy);
+//			return cpy;
+//		};
 		
 		
 		// TODO Auto-generated method stub

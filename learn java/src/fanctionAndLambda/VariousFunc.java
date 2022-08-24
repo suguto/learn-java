@@ -6,6 +6,17 @@ import java.util.function.Supplier;
 import java.util.Set;
 
 public class VariousFunc {
+//																					Bi/Binary		Unary
+//	Function@ˆø”‚ğó‚¯æ‚Á‚Äó‚¯æ‚Á‚½ˆø”‚Æ•Ê‚ÌŒ^‚ğ•Ô‚·		apply()‚Åˆø”‚ğ“n‚µ‚ÄŒ‹‰Ê‚ğó‚¯æ‚é		Z
+//	
+//	Operator@ˆø”‚ğó‚¯æ‚Á‚Äó‚¯æ‚Á‚½ˆø”‚Æ“¯‚¶Œ^‚ğ•Ô‚·		apply()‚Åˆø”‚ğ“n‚µ‚ÄŒ‹‰Ê‚ğó‚¯æ‚é		Z		@@	@@Z
+//	
+//	Consumer@ˆø”‚ğó‚¯æ‚Á‚Ä‰½‚à•Ô‚³‚È‚¢					accept()‚Åˆø”‚ğ“n‚·					Z
+//	
+//	Supplier@‰½‚àó‚¯æ‚ç‚¸‚ÉŒ‹‰Ê‚ğ•Ô‚·					get()‚ÅŒ‹‰Ê‚ğó‚¯æ‚é					Z
+//	
+//	Predicate@ˆø”‚ğó‚¯æ‚Á‚Äboolean‚Ì”»’f‚ğ•Ô‚·
+	
 	
 	public static Integer len(String s) {		//•¶š—ñ‚ğó‚¯æ‚è‚»‚Ì•¶š”‚ğ•Ô‚·ŠÖ”
 		return s.length();

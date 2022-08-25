@@ -15,7 +15,7 @@ public class VariousFunc {
 //	
 //	Supplier　何も受け取らずに結果を返す					get()で結果を受け取る					〇
 //	
-//	Predicate　引数を受け取ってbooleanの判断を返す
+//	Predicate　引数を受け取ってbooleanの判断を返す			呼び出しはtest()を使う
 	
 	
 	public static Integer len(String s) {		//文字列を受け取りその文字数を返す関数
@@ -27,10 +27,13 @@ public class VariousFunc {
 //				public abstract void process(Set<Hero> party, Hero leader, String pName);
 //			}			格納した関数オブジェクトはprocessという名前で呼び出せる
 
+	
+	//代入したいメソッドがstaticか否かで記述が変わる
+	//静的メソッド（static）なら　クラス名::その静的メソッド名、　否なら　インスタンス変数名::そのインスタンスのメソッド名で格納する
 	public static void main(String[] args) {
 		//import java util.function.*;をしておく
 				//<引数の型, 戻り値の型>
-		Function<String, Integer> func = VariousFunc::len;		//(クラス名::関数名)ここで代入して…
+		Function<String, Integer> func = VariousFunc::len;		//(クラス名::そのクラスの静的メソッド名)ここで代入して… 
 		//変数fancに格納されている処理ロジックを、引数"Java"で実行する
 		int a = func.apply("Java");
 		System.out.println("文字列　Java　は" + a + "文字です");

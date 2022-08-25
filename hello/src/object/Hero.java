@@ -20,8 +20,8 @@ public class Hero {
 	public int attack(Enemy e){
 		int damage = new java.util.Random().nextInt(3);
 		damage += 5;
-		System.out.println(this.name + "は" + e.name + "を攻撃した");
-		System.out.println(e.name + "に" + damage + "のダメージ");
+		System.out.println(this.name + "は" + e.getName() + "を攻撃した");
+		System.out.println(e.getName() + "に" + damage + "のダメージ");
 		return damage;
 	}
 	public int skill(Enemy e){
@@ -30,7 +30,7 @@ public class Hero {
 			int damage = new java.util.Random().nextInt(5);
 			damage += 15;
 			System.out.println(this.name + "はスキルを使った");
-			System.out.println(e.name + "に" + damage + "のダメージ");
+			System.out.println(e.getName() + "に" + damage + "のダメージ");
 			int hp = e.getHp();
 			return damage;
 		}else {

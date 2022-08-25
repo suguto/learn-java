@@ -34,25 +34,25 @@ public class main {
 				e_HP -= h.attack(e);	
 				if(e_HP <= 0) {
 					e_HP = 0;
-					System.out.println(e.name + "‚ð“|‚µ‚Ü‚µ‚½");
+					System.out.println(e.getName() + "‚ð“|‚µ‚Ü‚µ‚½");
 				}	
 			}else if (select == 1){
 				e_HP -= h.skill(e);
 				if(e_HP <= 0) {
 					e_HP = 0;
-					System.out.println(e.name + "‚ð“|‚µ‚Ü‚µ‚½");
+					System.out.println(e.getName() + "‚ð“|‚µ‚Ü‚µ‚½");
 				}	
 			}else if (select == 2) {
 				m_HP -= h.attack(m);
 				if (m_HP <= 0) {
 					m_HP = 0;
-					System.out.println(m.name + "‚ð“|‚µ‚Ü‚µ‚½");
+					System.out.println(m.getName() + "‚ð“|‚µ‚Ü‚µ‚½");
 				}
 			}else if (select == 3) {
 				m_HP -= h.skill(m);
 				if (m_HP <= 0) {
 					m_HP = 0;
-					System.out.println(m.name + "‚ð“|‚µ‚Ü‚µ‚½");
+					System.out.println(m.getName() + "‚ð“|‚µ‚Ü‚µ‚½");
 				}
 			}
 			if (e_HP <= 0 && m_HP <= 0) {
@@ -71,22 +71,22 @@ public class main {
 				}else if (w_select == 0 && e_HP > 0) {
 					e_HP -= wizard.fire(e);
 					if(e_HP <= 0) {
-						System.out.println(e.name + "‚ð“|‚µ‚Ü‚µ‚½");
+						System.out.println(e.getName() + "‚ð“|‚µ‚Ü‚µ‚½");
 					}	
 				}else if (w_select == 0 && e_HP <= 0) {
 					m_HP -= wizard.fire(m);
 					if(m_HP <= 0) {
-						System.out.println(m.name + "‚ð“|‚µ‚Ü‚µ‚½");
+						System.out.println(m.getName() + "‚ð“|‚µ‚Ü‚µ‚½");
 					}	
 				}else if (w_select == 1 && m_HP > 0) {
 					m_HP -= wizard.fire(m);
 					if(m_HP <= 0) {
-						System.out.println(m.name + "‚ð“|‚µ‚Ü‚µ‚½");
+						System.out.println(m.getName() + "‚ð“|‚µ‚Ü‚µ‚½");
 					}	
 				}else if (w_select == 1 && m.getHp() <= 0) {
 					e_HP -= wizard.fire(e);
 					if(e_HP <= 0) {
-						System.out.println(e.name + "‚ð“|‚µ‚Ü‚µ‚½");
+						System.out.println(e.getName() + "‚ð“|‚µ‚Ü‚µ‚½");
 					}	
 				}
 			}
@@ -97,7 +97,7 @@ public class main {
 		
 			//Enemy‚Ìƒ^[ƒ“
 			if (e_HP > 0) {
-				System.out.println(e.name + "‚ÌHP‚Í" + e_HP + "‚Å‚·");
+				System.out.println(e.getName() + "‚ÌHP‚Í" + e_HP + "‚Å‚·");
 				int e_select = new java.util.Random().nextInt(3);
 				if(e_select == 0) {
 					int h_HP = e.attack(h);
@@ -122,7 +122,7 @@ public class main {
 			
 			//Matango‚Ìƒ^[ƒ“
 			if (m_HP > 0) {
-				System.out.println(m.name + "‚ÌHP‚Í" + m_HP + "‚ÅMP‚Í" + m.getMp() + "‚Å‚·");
+				System.out.println(m.getName() + "‚ÌHP‚Í" + m_HP + "‚ÅMP‚Í" + m.getMp() + "‚Å‚·");
 				int m_select = new java.util.Random().nextInt(4);
 				if(m_select == 0) {
 					int h_HP = m.attack(h);

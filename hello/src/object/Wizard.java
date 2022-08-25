@@ -40,7 +40,7 @@ public class Wizard {
 		int basePoint = 5;
 		int fire = (int)(basePoint * this.wand.getPower());
 		System.out.println(this.name + "のファイアー");
-		System.out.println(e.name + "に" + fire + "ダメージ");
+		System.out.println(e.getName() + "に" + fire + "ダメージ");
 		return fire; 
 	}
 //	public void fire(Matango m) {

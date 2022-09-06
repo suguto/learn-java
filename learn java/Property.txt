@@ -1,0 +1,5 @@
+#\u52C7\u8005\u306E\u60C5\u5831
+#Tue Sep 06 14:29:44 JST 2022
+heroMp=23
+heroName=êºãΩ
+heroHp=64

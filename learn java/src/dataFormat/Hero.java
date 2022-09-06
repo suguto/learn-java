@@ -7,7 +7,7 @@ import basicOfInstance.Sword;
 //複数のデータをカンマで区切って順に格納するデータフォーマットの形式の事をCSV（Comma-Separated Values）という
 //データを区切るために使う文字はデリミタと呼ばれ、スペースやタブ文字を使う亜種もある
 
-public class Hero {
+public class Hero implements Serializable {
 	private String name;
 	private int hp, mp;
 	private Sword sword;

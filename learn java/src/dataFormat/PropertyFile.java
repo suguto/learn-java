@@ -50,7 +50,7 @@ public class PropertyFile {
 		}
 		
 		
-		ResourceBundle rb = ResourceBundle.getBundle("C:/Users/grpn7/Property");		//ファイルの.propertiesは要らない
+		ResourceBundle rb = ResourceBundle.getBundle("Property");		//ファイルの.propertiesは要らない
 		String heroName = rb.getString("heroName");
 		System.out.println(heroName);
 		

@@ -1,6 +1,6 @@
 package network;
 import java.io.*;
-import java.net.*;
+import java.net.URL;
 
 public class Url {
 

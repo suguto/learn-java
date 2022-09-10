@@ -1,6 +1,7 @@
 package network;
 import java.net.*;
 
+//Ú‘±‚ğƒLƒƒƒbƒ`‚·‚é‘¤
 public class ServerSock {
 
 	public static void main(String[] args) throws Exception{

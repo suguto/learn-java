@@ -2,7 +2,6 @@ package dataBase;
 import java.sql.*;
 
 public class SqlSentence {
-	
 	//XVŒnSQL•¶‚ÆŒŸõŒnSQL•¶‘—M‚Ìˆá‚¢‚ÍexecuteUpdate(), executeQuery()	
 
 	public static void main(String[] args) {
